@@ -31,19 +31,30 @@
         var listaEstudantes = document.getElementById("listaEstudantes");
         var botao = document.getElementById("enviar");
         var botaoRemove = document.getElementById("remover");
-        botao.addEventListener("click", atualizaListas)
+        botao.addEventListener("click", atualizaListas);
         function atualizaListas(e){
             e.preventDefault();
             nome = document.forms.namedItem("excursao").elements.nome;
             idade = document.forms.namedItem("excursao").elements.idade;
             var novo = document.createElement("li");
-            novo.textContent = nome.value + " - " + idade.value;
+            var stringAux = '<input type="checkbox" name="selecao" id="selecao"/>';
+            novo.innerHTML = stringAux + nome.value + " - " + idade.value;
+            novo.addEventListener ("click", function() { permiteEdicao(novo) });
             if(Number(idade.value) >= 18){
                 listaAdultos.appendChild(novo);
             }
             else{
                 listaEstudantes.appendChild(novo);
             }
+        }
+        function permiteEdicao(participante){
+            participante.style.color = "blue";
+            participante.contentEditable = "true";
+            botaoRemove.hidden = false;
+        }
+        botaoRemove.addEventListener("click", removeSelecionado);
+        function removeSelecionado(){
+            ckList = document.querySelectorAll("input[type=checkbox]:checked");
         }
     </script>
 </body>
