@@ -47,15 +47,20 @@
                 listaEstudantes.appendChild(novo);
             }
         }
+
         function permiteEdicao(participante){
-            participante.style.color = "blue";
             participante.contentEditable = "true";
             botaoRemove.hidden = false;
         }
+
         botaoRemove.addEventListener("click", removeSelecionado);
         function removeSelecionado(){
             ckList = document.querySelectorAll("input[type=checkbox]:checked");
+            ckList.forEach(function (el) {
+                el.parentElement.remove();
+            });
         }
+        
     </script>
 </body>
 </html>
