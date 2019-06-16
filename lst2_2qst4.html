@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="pt">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Lista 2.2 - Questao 4</title>
+</head>
+
+<body>
+    <h1>Tabela Curiosidades de Animais</h1>
+
+    <form name="caracteristicas">
+        <label>Animal: <input type="text" /> </label>
+        <label>Altura: <input type="number" /> </label>
+        <label>Peso: <input type="number" /> </label>
+        <label>Velocidade: <input type="number" /> </label>
+        <label>Idade Maxima: <input type="number" /> </label>
+
+        <button id="enviar" type="submit">ENVIAR</button>
+    </form>
+
+    <table border="1" id="tabela">
+        <thead>
+
+            <thead>
+                <th>Animal</th>
+                <th>Altura</th>
+                <th>Peso</th>
+                <th>Velocidade</th>
+                <th>Idade Maxima</th>
+            </thead>
+
+        <tbody id="valoresTabela">
+
+        </tbody>
+
+        <tfoot>
+            <tr>
+                <th>Destaques</th>
+                <td id="maisAlto"></td>
+                <td id="maisPesado"></td>
+                <td id="maisVeloz"></td>
+                <td id="maiorTempoVida"></td>
+            </tr>
+
+            <tr>
+                <th>Médias</th>
+                <td id="mAltura"></td>
+                <td id="mPeso"></td>
+                <td id="mVelo"></td>
+                <td id="mIdade"></td>
+            </tr>
+        </tfoot>
+
+        </thead>
+
+
+    </table>
+
+</body>
+
+</html>
