@@ -57,6 +57,7 @@
         var formEntrada = document.forms.caracteristicas;
         var botaoAdd = formEntrada.enviar;
         var maiorAltura = 0, maiorPeso = 0, maiorVelocidade = 0, maiorIdade = 0;
+        var totalAlt = 0, totalPeso = 0, totalVel = 0, totalIdade = 0;
 
         botaoAdd.addEventListener("click", adicionaAnimal);
 
@@ -88,8 +89,33 @@
             lines.appendChild(elVel);
             lines.appendChild(elIdade);
 
+            totalAlt += Number(altura);
+            totalPeso += Number(peso);
+            totalVel += Number(velocidade);
+            totalIdade += Number(idade);
+
             tabelaBody.appendChild(lines);
-            
+
+            var tabelaRows = tabelaBody.getElementsByTagName("tr");
+            var auxMediaAlt = document.getElementById("mAltura");
+            var auxMediaPeso = document.getElementById("mPeso");
+            var auxMediaVel = document.getElementById("mVelo");
+            var auxMediaIdade = document.getElementById ("mIdade");
+            auxMediaAlt.textContent = Number(totalAlt/tabelaRows.length);
+            auxMediaPeso.textContent = Number(totalPeso/tabelaRows.length);
+            auxMediaVel.textContent = Number(totalVel/tabelaRows.length);
+            auxMediaIdade.textContent = Number(totalIdade/tabelaRows.length);
+
+            // var indice;
+            // for(var i=0; i < tabelaRows.length; i++){
+            //     if(Number(tabelaRows[i].getElementsByTagName("td")[1].textContent) > maiorAltura){
+            //         maiorAltura = Number(tabelaRows[i].getElementsByTagName("td")[1].textContent);
+            //         indice = i;
+            //     }
+            // }
+            // console.log(tabelaRows[indice].getElementsByTagName("td")[0].textContent);
+            // var auxMaisAlto = document.getElementById("maisAlto");
+            // //auxMaisAlto.textContent = tabelaRows[indice].getElementsByTagName("td")[0].textContent;
         }
     </script>
 </body>
