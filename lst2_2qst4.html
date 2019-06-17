@@ -106,16 +106,46 @@
             auxMediaVel.textContent = Number(totalVel/tabelaRows.length);
             auxMediaIdade.textContent = Number(totalIdade/tabelaRows.length);
 
-            // var indice;
-            // for(var i=0; i < tabelaRows.length; i++){
-            //     if(Number(tabelaRows[i].getElementsByTagName("td")[1].textContent) > maiorAltura){
-            //         maiorAltura = Number(tabelaRows[i].getElementsByTagName("td")[1].textContent);
-            //         indice = i;
-            //     }
-            // }
-            // console.log(tabelaRows[indice].getElementsByTagName("td")[0].textContent);
-            // var auxMaisAlto = document.getElementById("maisAlto");
-            // //auxMaisAlto.textContent = tabelaRows[indice].getElementsByTagName("td")[0].textContent;
+            var auxMaisAlto = document.getElementById("maisAlto");
+            var auxMaisPesado = document.getElementById("maisPesado");
+            var auxMaisVeloz = document.getElementById("maisVeloz");
+            var auxMaiorTempoVida = document.getElementById("maiorTempoVida");
+            //DESTAQUE ALTURA
+            var indice;
+            for(var i=0; i < tabelaRows.length; i++){
+                if(Number(tabelaRows[i].getElementsByTagName("td")[1].textContent) >= maiorAltura){
+                    maiorAltura = Number(tabelaRows[i].getElementsByTagName("td")[1].textContent);
+                    indice = i;
+                }
+            }
+            auxMaisAlto.textContent = tabelaRows[indice].getElementsByTagName("td")[0].textContent;
+            //DESTAQUE PESO
+            indice = 0;
+            for(var i=0; i < tabelaRows.length; i++){
+                if(Number(tabelaRows[i].getElementsByTagName("td")[2].textContent) >= maiorPeso){
+                    maiorPeso = Number(tabelaRows[i].getElementsByTagName("td")[2].textContent);
+                    indice = i;
+                }
+            }
+            auxMaisPesado.textContent = tabelaRows[indice].getElementsByTagName("td")[0].textContent;
+            //DESTQUE VELOCIDADE
+            indice = 0;
+            for(var i=0; i < tabelaRows.length; i++){
+                if(Number(tabelaRows[i].getElementsByTagName("td")[3].textContent) >= maiorVelocidade){
+                    maiorVelocidade = Number(tabelaRows[i].getElementsByTagName("td")[3].textContent);
+                    indice = i;
+                }
+            }
+            auxMaisVeloz.textContent = tabelaRows[indice].getElementsByTagName("td")[0].textContent;
+            //DESTAQUE TEMPO DE VIDA
+            indice = 0;
+            for(var i=0; i < tabelaRows.length; i++){
+                if(Number(tabelaRows[i].getElementsByTagName("td")[4].textContent) >= maiorIdade){
+                    maiorIdade = Number(tabelaRows[i].getElementsByTagName("td")[4].textContent);
+                    indice = i;
+                }
+            }
+            auxMaiorTempoVida.textContent = tabelaRows[indice].getElementsByTagName("td")[0].textContent;
         }
     </script>
 </body>
