@@ -53,6 +53,8 @@
 
     </table>
 
+    <pre><h2></h2></pre>
+
     <script>
         var formEntrada = document.forms.caracteristicas;
         var botaoAdd = formEntrada.enviar;
@@ -146,6 +148,18 @@
                 }
             }
             auxMaiorTempoVida.textContent = tabelaRows[indice].getElementsByTagName("td")[0].textContent;
+
+            var acima_do_peso = document.getElementsByTagName("h2")[0];
+            acima_do_peso.textContent = "ANIMAIS FORA DO PESO: \n";
+            indice = 0;
+            var imc;
+            for(var i=0; i < tabelaRows.length; i++){
+                imc = Number(tabelaRows[i].getElementsByTagName("td")[2].textContent)/(Number(tabelaRows[i].getElementsByTagName("td")[1].textContent)*Number(tabelaRows[i].getElementsByTagName("td")[1].textContent));
+                console.log("IMC"+imc);
+                if(imc > 25){
+                    acima_do_peso.textContent+=tabelaRows[i].getElementsByTagName("td")[0].textContent + "\n";
+                }
+            }
         }
     </script>
 </body>
