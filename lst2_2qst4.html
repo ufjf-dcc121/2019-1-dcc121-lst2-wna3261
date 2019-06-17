@@ -10,17 +10,16 @@
     <h1>Tabela Curiosidades de Animais</h1>
 
     <form name="caracteristicas">
-        <label>Animal: <input type="text" /> </label>
-        <label>Altura: <input type="number" /> </label>
-        <label>Peso: <input type="number" /> </label>
-        <label>Velocidade: <input type="number" /> </label>
-        <label>Idade Maxima: <input type="number" /> </label>
+        <label>Animal: <input type="text" name="nome"/> </label>
+        <label>Altura: <input type="number" name="altura"/> </label>
+        <label>Peso: <input type="number" name="peso"/> </label>
+        <label>Velocidade: <input type="number" name="velocidade"/> </label>
+        <label>Idade Maxima: <input type="number" name="idade"/> </label>
 
-        <button id="enviar" type="submit">ENVIAR</button>
+        <button id="enviar" name="enviar" type="submit">ENVIAR</button>
     </form>
 
     <table border="1" id="tabela">
-        <thead>
 
             <thead>
                 <th>Animal</th>
@@ -52,11 +51,47 @@
             </tr>
         </tfoot>
 
-        </thead>
-
-
     </table>
 
+    <script>
+        var formEntrada = document.forms.caracteristicas;
+        var botaoAdd = formEntrada.enviar;
+        var maiorAltura = 0, maiorPeso = 0, maiorVelocidade = 0, maiorIdade = 0;
+
+        botaoAdd.addEventListener("click", adicionaAnimal);
+
+        function adicionaAnimal(e){
+            e.preventDefault();
+            var nome = formEntrada.nome.value;
+            var altura = formEntrada.altura.value;
+            var peso = formEntrada.peso.value;
+            var velocidade = formEntrada.velocidade.value;
+            var idade = formEntrada.idade.value;
+
+            var tabelaBody = document.getElementById("valoresTabela");
+            var lines = document.createElement("tr");
+            var elNome = document.createElement("td");
+            var elAlt = document.createElement("td");
+            var elPeso = document.createElement("td");
+            var elVel = document.createElement("td");
+            var elIdade = document.createElement("td");
+
+            elNome.innerText = nome;
+            elAlt.innerText = altura;
+            elPeso.innerText = peso;
+            elVel.innerText = velocidade;
+            elIdade.innerText = idade;
+
+            lines.appendChild(elNome);
+            lines.appendChild(elAlt);
+            lines.appendChild(elPeso);
+            lines.appendChild(elVel);
+            lines.appendChild(elIdade);
+
+            tabelaBody.appendChild(lines);
+            
+        }
+    </script>
 </body>
 
 </html>
